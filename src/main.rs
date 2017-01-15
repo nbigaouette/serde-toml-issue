@@ -72,8 +72,7 @@ name = "Component #3"
 [components.pause.fixed]
 duration = 2.0
 "#;
-
-    println!("TOML content:\n{}", toml_content);
+    // println!("TOML content:\n{}", toml_content);
 
     // Validate TOML file
     let mut parser = toml::Parser::new(&toml_content);
@@ -91,5 +90,5 @@ duration = 2.0
     };
 
     let json_pretty = serde_json::to_string_pretty(&toml).unwrap();
-    println!("json_pretty:\n{}", json_pretty);
+    // println!("json_pretty:\n{}", json_pretty);
 }
