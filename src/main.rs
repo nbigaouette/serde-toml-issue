@@ -85,4 +85,7 @@ duration = 2.0
             return
         }
     };
+
+    let json_pretty = serde_json::to_string_pretty(&toml).unwrap();
+    println!("json_pretty:\n{}", json_pretty);
 }
