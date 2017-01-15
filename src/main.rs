@@ -91,4 +91,10 @@ duration = 2.0
 
     let json_pretty = serde_json::to_string_pretty(&toml).unwrap();
     // println!("json_pretty:\n{}", json_pretty);
+
+    let decoded: TomlFile = toml::decode_str(&toml_content).expect("Failed to deserialize TOML file to a TomlFile type");
+    // let decoded = serde_json::from_str(&toml_content);
+    // let decoded: TomlFile = decoded.expect("Failed to deserialize TOML file to a TomlFile type");
+    println!("{:#?}", decoded);
+
 }
