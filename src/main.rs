@@ -51,5 +51,23 @@ pub struct PauseRandomUniform {
 
 
 fn main() {
-    println!("Hello, world!");
+
+    let toml_content = r#"[info]
+uuid = "c8f8ef11-d758-4233-91f8-6bfe6b1ae357"
+
+[[components]]
+[pause.random.uniform]
+duration = 10.0
+
+[[components]]
+[pause.random.normal]
+duration = 5.0
+
+[[components]]
+[pause.fixed]
+duration = 2.0
+"#;
+
+    println!("TOML content:\n{}", toml_content);
+
 }
