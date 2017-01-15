@@ -1,3 +1,4 @@
+extern crate toml;
 extern crate serde;
 extern crate serde_json;
 #[macro_use]
@@ -70,4 +71,18 @@ duration = 2.0
 
     println!("TOML content:\n{}", toml_content);
 
+    // Validate TOML file
+    let mut parser = toml::Parser::new(&toml_content);
+    let toml = match parser.parse() {
+        Some(toml) => toml,
+        None => {
+            for err in &parser.errors {
+                let (loline, locol) = parser.to_linecol(err.lo);
+                let (hiline, hicol) = parser.to_linecol(err.hi);
+                println!("{}:{}-{}:{} error: {}",
+                         loline, locol, hiline, hicol, err.desc);
+            }
+            return
+        }
+    };
 }
