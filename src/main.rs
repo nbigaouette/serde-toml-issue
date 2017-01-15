@@ -18,6 +18,7 @@ pub struct Info {
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Component {
+    pub name: String,
     pub pause: Pause,
 }
 
@@ -57,15 +58,18 @@ fn main() {
 uuid = "c8f8ef11-d758-4233-91f8-6bfe6b1ae357"
 
 [[components]]
-[pause.random.uniform]
+name = "Component #1"
+[components.pause.random.uniform]
 duration = 10.0
 
 [[components]]
-[pause.random.normal]
+name = "Component #2"
+[components.pause.random.normal]
 duration = 5.0
 
 [[components]]
-[pause.fixed]
+name = "Component #3"
+[components.pause.fixed]
 duration = 2.0
 "#;
 
