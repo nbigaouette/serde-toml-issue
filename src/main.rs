@@ -34,10 +34,17 @@ pub struct PauseFixed {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct PauseRandom {
-    normal: Option<PauseRandomNormal>,
-    uniform: Option<PauseRandomUniform>,
+pub enum PauseRandom {
+    #[serde(rename = "normal")]
+    PauseRandomNormal(PauseRandomNormal),
+    #[serde(rename = "uniform")]
+    PauseRandomUniform(PauseRandomUniform),
 }
+// #[derive(Serialize, Deserialize, Debug)]
+// pub struct PauseRandom {
+//     normal: Option<PauseRandomNormal>,
+//     uniform: Option<PauseRandomUniform>,
+// }
 
 
 #[derive(Serialize, Deserialize, Debug)]
